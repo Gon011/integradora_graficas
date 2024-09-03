@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class contador : MonoBehaviour
 {
-    public TextMeshProGUI texto;
+    public TextMeshProUGUI texto;
     
 
     // Update is called once per frame
