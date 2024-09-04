@@ -608,8 +608,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bala: {fileID: 6169580006200333852, guid: 8c44fd7ed6a63f74a9afef8eaeceeb9c, type: 3}
   spawner: {fileID: 994923809}
-  velocidad: 3
-  velocidad_bala: 20
+  velocidad: 2
+  velocidad_bala: 10
 --- !u!1 &2009871296
 GameObject:
   m_ObjectHideFlags: 0

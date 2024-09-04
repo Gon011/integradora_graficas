@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756d67b5f6d3f6545bd20dfe0b0ee70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limx: 20
-  limz: 20
+  limx: 15
+  limz: 15
 --- !u!54 &6065928750115170113
 Rigidbody:
   m_ObjectHideFlags: 0

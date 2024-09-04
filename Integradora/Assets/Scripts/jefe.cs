@@ -6,8 +6,8 @@ public class jefe : MonoBehaviour
 {
     public GameObject bala;
     public Transform spawner;
-    public float velocidad = 5f;
-    public float velocidad_bala = 20f;
+    public float velocidad = 2f;
+    public float velocidad_bala = 10f;
     private int modo = 1;
     private Vector3 posicionObjetivo; // Posición objetivo para la transición entre modos
     private bool enTransicion = false; // Indicador de transición entre modos
@@ -28,8 +28,8 @@ public class jefe : MonoBehaviour
             {
                 // Movimiento en forma de "8" en X y Z
                 float tiempo = Time.time * velocidad;
-                float x = Mathf.Sin(tiempo) * 5;
-                float z = Mathf.Sin(tiempo * 2) * 4; // Movimiento en Z en lugar de Y
+                float x = Mathf.Sin(tiempo) * 10;
+                float z = Mathf.Sin(tiempo * 2) * 5;
                 posicionObjetivo = new Vector3(x, transform.position.y, z);
             }
             else if (modo == 2)
@@ -66,20 +66,18 @@ public class jefe : MonoBehaviour
 
             if (modo == 1)
             {
-                // Modo 1: Disparo en estrella
                 while (Time.time - startTime < 10f)
                 {
                     for (int i = 0; i < 5; i++)
                     {
-                        float angle = i * 72; // 360 / 5 = 72 grados entre cada punta de la estrella
-                        disparar(Quaternion.Euler(0, angle, 0));
+                        float offset = Mathf.Sin(Time.time * 5 + i) * 15; 
+                        disparar(Quaternion.Euler(180, offset, 0));
                     }
-                    yield return new WaitForSeconds(0.5f); // Intervalo entre disparos
+                    yield return new WaitForSeconds(0.3f); // Intervalo entre disparos
                 }
             }
             else if (modo == 2)
             {
-                // Modo 2: Disparo en círculo completo
                 while (Time.time - startTime < 10f)
                 {
                     for (int i = 0; i < 12; i++)
@@ -92,15 +90,13 @@ public class jefe : MonoBehaviour
             }
             else if (modo == 3)
             {
-                // Modo 3: Disparo en espiral doble
                 while (Time.time - startTime < 10f)
                 {
-                    for (int i = 0; i < 36; i++)
+                    for (int i = 0; i < 10; i++)
                     {
-                        float angle1 = i * 10; // Primera espiral
-                        float angle2 = -i * 10; // Segunda espiral en dirección opuesta
-                        disparar(Quaternion.Euler(0, angle1, 0));
-                        disparar(Quaternion.Euler(0, angle2, 0));
+                        float angle = i * 36;
+                        float petalAngleOffset = Mathf.Sin(Time.time * 5 + i) * 15; 
+                        disparar(Quaternion.Euler(0, angle + petalAngleOffset, 0));
                     }
                     yield return new WaitForSeconds(0.3f); // Intervalo entre disparos
                 }

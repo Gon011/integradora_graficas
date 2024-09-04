@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class balas : MonoBehaviour
 {
-    public float limx = 25f;
-    public float limz = 25f;
+    public float limx = 20f;
+    public float limz = 20f;
     
     // Update is called once per frame
     void Update()
